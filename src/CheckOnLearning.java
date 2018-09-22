@@ -43,6 +43,30 @@ public class CheckOnLearning {
 	*/
 	public static void createQuestion() {
 		Scanner input = new Scanner(System.in);
+
+		// Get question statement
+		System.out.print("Question Statement: ");
+		String question = input.next();
+        
+        // Get answer choices
+        String[] ans = new String[5];
+		System.out.print("Correct Answer: ");
+		ans[0] = input.next();
+
+		for (int i = 1; i < ans.length; i++) {
+			System.out.print("Incorrect options: ");
+			ans[i] = input.next();
+		}
+
+		// Make Question object
+		Question q = new Question(question, ans);
+
+		Db db = new Db();
+
+		Db.save(q);
+		
+
+
 		
 	}
 
