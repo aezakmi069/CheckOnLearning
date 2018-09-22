@@ -1,4 +1,4 @@
-package CheckOnLearning.src;
+package src;
 
 public class Question {
 	
