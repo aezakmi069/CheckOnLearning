@@ -1,6 +1,8 @@
 package src;
 
 import java.util.Scanner;
+import java.uitl.*;
+import java.io.*;
 
 public class CheckOnLearning {
 
@@ -58,24 +60,44 @@ public class CheckOnLearning {
 			ans[i] = input.next();
 		}
 
-		// Make Question object
+		// Make Question object and write to database
 		Question q = new Question(question, ans);
 
 		Db db = new Db();
 
-		Db.save(q);
-		
-
-
-		
+		db.save(q);
+				
 	}
 
 
-	/** Creates a Quiz
-
+	/** Creates a Quiz object
+	*** Call start() method of Quiz object to start the quiz
 	**/
 	public static void takeQuiz() {
-		
+		Db db = new Db();
+
+		// Get ArrayList of Question from database and create a ArrayList of Ten random questions 
+		ArrayList<Question> allQuestion = db.retrieve();
+
+		ArrayList<Question> tenQuestion = new ArrayList<Question>();
+
+		Random rand = new Random();
+
+		// Populate the ArrayList tenQuestion with random 10 questions
+		int counter = 0;
+		while (counter < 10 && counter < allQuestion.size()) {
+			int index = rand.nextInt(allQuestion.size());
+			tenQuestion.add(allQuestion.get(index));
+			allQuestion.remove(index);
+			counter++;
+		}
+
+		// Create a quiz object
+		Quiz quiz = new Quiz(tenQuestion);
+
+		// Start quiz
+		quiz.start();
+
 	}
 
 

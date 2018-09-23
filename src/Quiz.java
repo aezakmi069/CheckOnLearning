@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 public class Quiz{
-	ArrayList<Question> qr = new ArrayList<Question>();
+	private ArrayList<Question> qr = new ArrayList<Question>();
 
 	//Create a Quiz 
 	public Quiz(ArrayList<Question>){
