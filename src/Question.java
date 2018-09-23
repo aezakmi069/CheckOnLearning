@@ -12,18 +12,17 @@ public class Question {
 	*******************************************************/
 
 	public Question(String question, String[] ans) {
-
-		this.question = this.setQuestion(question) ;
-		this.ans = this.setAns(ans) ;
+		this.setQuestion(question) ;
+		this.setAns(ans);
 		
 	}
 
 	// get methods
 	public String getQuestion(){
-		return Question;
+		return question;
 	}
 
-	public String[] ans(){
+	public String[] getAns(){
 		return ans;
 	}
 	// set methods
