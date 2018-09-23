@@ -49,8 +49,32 @@ public class Quiz{
 			// Print the question statement along with answer choices
 			System.out.print(x.getQuestion() + "\n");
 			String[] ans = x.getAns();
-			
+			String rightAnswer = ans[0];
+			ArrayList<String> answers = new ArrayList<String>();
+			for (String a : ans) {
+				answers.add(a);
+			}
+			Collections.shuffle(answers);
+
+			// Print answer choices
+			ListIterator<String> it = answers.listIterator();
+			int choice = 1;
+			while (it.hasNext()) {
+				System.out.print(choice + ". " + it.next() + "\n");
+			}
+
+			// Ask for answer
+			Scanner input = new Scanner(System.in);
+			System.out.print("Your answer: ");
+			String yourAnswer = input.nextInt(); 
+
+			// Check if the answer is correct
+			if (answers.get(yourAnswer).equals(rightAnswer)) {
+				this.correct += 1;
+			}
 		}
+
+		System.out.print("\n\n ======|| You Got " + this.correct +_" answers correct. ||=========");
 	}
 
 
