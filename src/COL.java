@@ -6,6 +6,5 @@ import java.io.*;
 public class COL {
 	public static void main() {
 		CheckOnLearning.welcome();
-
 	}
 }
