@@ -45,7 +45,7 @@ public class Db {
 	*** ArrayList contains all the questions in the database
 	**/
 	public ArrayList<Question> retrieve() {
-		// Question Arraylist to store Question objects
+		// Question ArrayList to store Question objects
 		ArrayList<Question> arr = new ArrayList<Question>();
 		try {
 			// Scanner to read from file and 

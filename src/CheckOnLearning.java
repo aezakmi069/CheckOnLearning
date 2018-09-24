@@ -1,12 +1,14 @@
 package src;
 
 import java.util.Scanner;
-import java.uitl.*;
-import java.io.*;
+import java.util.*;
 
 public class CheckOnLearning {
 
-	/** Dispalys a welcome message
+	private static Scanner input;
+
+
+	/** Displays a welcome message
 	*** Asks user for a selection: Create Question or Take Quiz
 	*** Transfers operation to appropriate method based on the selection	
 	*/
@@ -30,7 +32,7 @@ public class CheckOnLearning {
 				System.out.print("Please Enter either 1 or 2\n");
 			}
 		} while (choice != 1 && choice != 2);
-		input.close();
+		
 		// Use selection to call appropriate methods
 		if (choice == 1) {
 			CheckOnLearning.createQuestion();
@@ -44,7 +46,7 @@ public class CheckOnLearning {
 	*** Passes the Question Object to Db object for writing to a file
 	*/
 	public static void createQuestion() {
-		Scanner input = new Scanner(System.in);
+		input = new Scanner(System.in);
 
 		// Get question statement
 		System.out.print("Question Statement: ");

@@ -1,8 +1,6 @@
 package src;
-import java.util.ArrayList;
-import java.util.Iterator;
+
 import java.util.*;
-import java.io*;
 
 public class Quiz{
 	private ArrayList<Question> q= new ArrayList<Question>();
@@ -10,7 +8,7 @@ public class Quiz{
 
 	//Create a Quiz 
 	public Quiz(ArrayList<Question> q){
-		this.setQ();
+		this.setQ(q);
 
 	}
 
@@ -29,12 +27,12 @@ public class Quiz{
 	}
 
 	public void setCorrect (int num) {
-		this.corect = num;
+		this.correct = num;
 	}
 
 
 	/** Starts a quiz
-	*** Increments the correct variable if Corrct	
+	*** Increments the correct variable if Correct	
 	**  If incorrect, displays the correct answer
 	*/
 	public void start() {
@@ -61,20 +59,21 @@ public class Quiz{
 			int choice = 1;
 			while (it.hasNext()) {
 				System.out.print(choice + ". " + it.next() + "\n");
+				choice++;
 			}
 
 			// Ask for answer
 			Scanner input = new Scanner(System.in);
 			System.out.print("Your answer: ");
-			String yourAnswer = input.nextInt(); 
-
+			int yourAnswer = Integer.parseInt(input.next()) - 1; 
+			
 			// Check if the answer is correct
 			if (answers.get(yourAnswer).equals(rightAnswer)) {
 				this.correct += 1;
 			}
 		}
 
-		System.out.print("\n\n ======|| You Got " + this.correct +_" answers correct. ||=========");
+		System.out.print("\n\n ======|| You Got " + this.correct + " answers correct. ||=========");
 	}
 
 

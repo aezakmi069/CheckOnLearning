@@ -1,10 +1,7 @@
 package src;
 
-import java.util.*;
-import java.io.*;
-
 public class COL {
-	public static void main() {
+	public static void main(String[] args) {
 		CheckOnLearning.welcome();
 	}
 }
