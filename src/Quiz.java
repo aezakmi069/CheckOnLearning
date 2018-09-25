@@ -39,7 +39,8 @@ public class Quiz{
 		ListIterator<Question> iterator = this.getQ().listIterator();
 
 		System.out.print("\n\n=======|| Welcome to THE QUIZ ||========\n\n");
-
+		
+		System.out.println("The size of Quiz is: " + this.getQ().size());
 		// Take the quiz
 		while (iterator.hasNext()) {
 			Question x = iterator.next();

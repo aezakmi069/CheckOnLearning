@@ -50,16 +50,19 @@ public class CheckOnLearning {
 
 		// Get question statement
 		System.out.print("Question Statement: ");
-		String question = input.next();
+		String question = input.nextLine();
+		question = question.replaceAll("\\r|\\n", "");
         
         // Get answer choices
         String[] ans = new String[5];
 		System.out.print("Correct Answer: ");
 		ans[0] = input.next();
+		input.nextLine();
 
 		for (int i = 1; i < ans.length; i++) {
 			System.out.print("Incorrect options: ");
 			ans[i] = input.next();
+			input.nextLine();
 		}
 
 		// Make Question object and write to database
@@ -80,19 +83,25 @@ public class CheckOnLearning {
 
 		// Get ArrayList of Question from database and create a ArrayList of Ten random questions 
 		ArrayList<Question> allQuestion = db.retrieve();
+		
+		// Shuffle the questions
+		Collections.shuffle(allQuestion);
+		
+		// Print the size of allQuestion
+		System.out.print("The size of allQuestion is: " + allQuestion.size() + "\n");
 
 		ArrayList<Question> tenQuestion = new ArrayList<Question>();
 
-		Random rand = new Random();
 
 		// Populate the ArrayList tenQuestion with random 10 questions
 		int counter = 0;
 		while (counter < 10 && counter < allQuestion.size()) {
-			int index = rand.nextInt(allQuestion.size());
-			tenQuestion.add(allQuestion.get(index));
-			allQuestion.remove(index);
+			tenQuestion.add(allQuestion.get(counter));
 			counter++;
 		}
+		
+		// Print the length of tenQuestion
+		System.out.print("The length of tenQuestion is: " + tenQuestion.size() + "\n");
 
 		// Create a quiz object
 		Quiz quiz = new Quiz(tenQuestion);
